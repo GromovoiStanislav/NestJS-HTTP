@@ -1,6 +1,6 @@
 import { Injectable } from "@nestjs/common";
 import { HttpService } from "@nestjs/axios";
-import { catchError, firstValueFrom, lastValueFrom, Observable, take } from "rxjs";
+import { catchError, firstValueFrom, lastValueFrom, map, Observable, take } from "rxjs";
 import { AxiosError } from "axios";
 import { Response } from "express";
 
@@ -16,11 +16,21 @@ export class AppService {
   }
 
   async getHTTP(): Promise<any> {
-    const { data } = await this.httpService.axiosRef.get("http://localhost:3000",
-      {
-        headers: await this.getHeaders("userId")
-      });
-    return data;
+    // const { data } = await this.httpService.axiosRef.get("http://localhost:3000",
+    //   {
+    //     headers: await this.getHeaders("userId")
+    //   });
+    //return data;
+
+    // const { data } = await this.httpService.get("http://localhost:3000",
+    //   {
+    //     headers: await this.getHeaders("userId")
+    //   }).toPromise(); // deprecated!!!
+    //return data;
+
+    return this.httpService
+      .get("http://localhost:3000")
+      .pipe(map(({ data }) => data ));
 
   }
 
@@ -73,11 +83,11 @@ export class AppService {
 
   // example new URL():
   private buildAuthorizeUrl() {
-    const authorizeUrl = new URL('https://coinbase.com/oauth/authorize');
-    authorizeUrl.searchParams.append('response_type', 'code');
-    authorizeUrl.searchParams.append('client_id', `this.configService.get('COINBASE_CLIENT_ID')`);
-    authorizeUrl.searchParams.append('redirect_uri', `this.configService.get('COINBASE_REDIRECT_URI')`);
-    authorizeUrl.searchParams.append('scope', 'wallet:transactions:read,wallet:accounts:read');
+    const authorizeUrl = new URL("https://coinbase.com/oauth/authorize");
+    authorizeUrl.searchParams.append("response_type", "code");
+    authorizeUrl.searchParams.append("client_id", `this.configService.get('COINBASE_CLIENT_ID')`);
+    authorizeUrl.searchParams.append("redirect_uri", `this.configService.get('COINBASE_REDIRECT_URI')`);
+    authorizeUrl.searchParams.append("scope", "wallet:transactions:read,wallet:accounts:read");
     return authorizeUrl;
   }
 
