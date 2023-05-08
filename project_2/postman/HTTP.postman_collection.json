@@ -1,0 +1,91 @@
+{
+	"info": {
+		"_postman_id": "9657eaba-6680-422b-a2bb-bdb893ccc437",
+		"name": "HTTP",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "price/bitcoin/USD",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/price/bitcoin/USD",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"price",
+						"bitcoin",
+						"USD"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "price/bitcoin Copy",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/price/bitcoin",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"price",
+						"bitcoin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "facts/cats",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/facts/cats",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"facts",
+						"cats"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "facts/cats/axios",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/facts/cats/axios",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"facts",
+						"cats",
+						"axios"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
