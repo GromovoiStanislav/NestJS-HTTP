@@ -59,6 +59,7 @@ describe("TodosService", () => {
 
       // Assert
       expect(result).toEqual(expected);
+      expect(httpService.get).toHaveBeenCalledTimes(1);
     });
 
     it("should return an empty array", async () => {
@@ -80,6 +81,7 @@ describe("TodosService", () => {
 
       // Assert
       expect(result).toEqual(expected);
+      expect(httpService.get).toHaveBeenCalledTimes(1);
     });
 
     it('should throw an unexpected error', () => {
